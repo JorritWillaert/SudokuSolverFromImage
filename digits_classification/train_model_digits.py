@@ -1,6 +1,6 @@
 import numpy as np
 import tensorflow as tf
-from tensorflow.keras.models import Sequential
+from tensorflow.keras.models import Sequential, model_from_json
 from tensorflow.keras.layers import Dense, Conv2D, Dropout, Flatten, MaxPooling2D
 
 import matplotlib.pyplot as plt
@@ -41,6 +41,12 @@ def train_model():
 
     print("\nResults on test set: ")
     model.evaluate(X_test, y_test)
+
+    check = input("Do want to save this new model? (This will overwrite the previous weights!) ")
+    # Save model and weights to HDF5
+    if check.lower() in ['y', 'yes']:
+        model.save('testing_model_digits.h5')
+        print('\nSaved model and weights.')
 
 if __name__ == '__main__':
     train_model()
