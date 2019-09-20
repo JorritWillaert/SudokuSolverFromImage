@@ -2,8 +2,6 @@
 
 Extract a sudoku from an image and solve it.
 
-***
-
 ## Installation
 
 This program relies on external packages. To install them you can type in the
