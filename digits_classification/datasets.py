@@ -17,9 +17,9 @@ def create_validation_dataset(MNIST_train_dataset):
     train_sampler = SubsetRandomSampler(train_indices)
     val_sampler = SubsetRandomSampler(val_indices)
 
-    train_loader = DataLoader(MNIST_train_dataset, batch_size=config.BATCH_SIZE,
+    train_loader = DataLoader(MNIST_train_dataset, batch_size=config.BATCH_SIZE, pin_memory=config.PIN_MEMORY,
                               sampler=train_sampler, num_workers=config.NUM_WORKERS)
-    val_loader = DataLoader(MNIST_train_dataset, batch_size=config.BATCH_SIZE,
+    val_loader = DataLoader(MNIST_train_dataset, batch_size=config.BATCH_SIZE, pin_memory=config.PIN_MEMORY,
                             sampler=val_sampler, num_workers=config.NUM_WORKERS)
     
     return train_loader, val_loader
@@ -27,4 +27,3 @@ def create_validation_dataset(MNIST_train_dataset):
 if __name__ == "__main__":
     train_dataset = datasets.MNIST(root='dataset/', train=True, transform=config.transform, download=True)
     train_loader, val_loader = create_validation_dataset(train_dataset)
-    
