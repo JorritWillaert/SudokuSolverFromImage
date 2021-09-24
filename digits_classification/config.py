@@ -3,6 +3,7 @@ import torchvision.transforms as transforms
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 LEARNING_RATE = 1e-4
+WEIGHT_DECAY = 5e-4
 BATCH_SIZE = 64
 NUM_EPOCHS = 100
 NUM_WORKERS = 4
